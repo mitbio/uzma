@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uzma Patel - Inspiration & Success</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+/* Base container styling */
+.container {
+  max-width: 1200px;   /* Set your desired max-width for larger screens */
+  margin: 0 auto;      /* Centers the container */
+  padding: 0 15px;     /* Adds padding to prevent content touching the screen edges */
+  width: 100%;         /* Ensures the container takes up the full width on mobile */
+  box-sizing: border-box;  /* Includes padding in the element's total width */
+}
+
+/* Optional: For even smaller devices, you can ensure it remains responsive */
+@media (max-width: 600px) {
+  .container {
+    padding: 0 10px;   /* You can reduce padding for smaller screens */
+  }
+}
+
+  .heading {
+  font-family: 'Great Vibes', cursive;
+  font-size: 60px; /* or whatever size you want */
+  color: #7B5D35; /* Pick a color that complements your design */
+  text-align:center;
+}
+
+/* Styling the container */
+.social-buttons {
+    text-align: center;
+    margin: 20px;
+}
+
+/* General button styling */
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 350px;
+    height: 60px;
+    border-radius: 30px;
+    margin: 15px 0;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effect for buttons */
+.button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* YouTube button styling */
+.youtube {
+    background-color: #FF0000;
+}
+.youtube:hover {
+    background-color: #CC0000;
+}
+
+/* TikTok button styling */
+.tiktok {
+    background-color: #000000;
+}
+.tiktok:hover {
+    background-color: #1A1A1A;
+}
+
+/* Instagram button styling with gradient */
+.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+.instagram:hover {
+    background: linear-gradient(45deg, #bc1888 0%, #cc2366 25%, #dc2743 50%, #e6683c 75%, #f09433 100%);
+}
+
+/* Text styling for each section */
+.social-buttons p {
+    font-size: 14px;
+    color: #555;
+    margin-top: 10px;
+}
+
+.social-buttons img {
+    height: 30px;
+    margin-right: 10px;
+}
+
+  
+  </style>
+</head>
+<body>
+<div id="newsletter-popup" class="newsletter-popup">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <h2>Join Our Newsletter!</h2>
+        <p>Stay updated with the latest tips, tools, and updates from our link-in-bio service.</p>
+        <form id="newsletter-form">
+            <input type="email" id="newsletter-email" placeholder="Enter your email" required>
+            <input type="text" id="newsletter-email" placeholder="Enter your Fullname" required>
+			<button type="submit" class="subscribe-btn">Subscribe Now</button>
+        </form>
+    </div>
+</div>
+
+
+<style>
+/* Newsletter Popup Styles */
+.newsletter-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.5s ease;
+}
+
+.popup-content {
+    position: relative; /* Keep the close button anchored */
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+    animation: slideUp 0.5s ease; /* Apply animations only to the content */
+    overflow: visible; /* Make sure button stays visible */
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    z-index: 1001; /* Always above everything else */
+    visibility: visible; /* Ensures the button stays visible */
+    display: inline; /* Ensures it's always shown */
+    opacity: 1; /* Full opacity to prevent fading */
+    transition: none; /* Remove transitions so it's static */
+}
+
+
+.popup-content h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #4A90E2;
+    margin-bottom: 20px;
+}
+
+.popup-content p {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#newsletter-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#newsletter-form input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.subscribe-btn {
+    background-color: #F5A623;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.subscribe-btn:hover {
+    background-color: #e08a0c;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+</style>
+
+<script>
+// Open the newsletter pop-up after 5 seconds
+window.onload = function() {
+    setTimeout(function() {
+        document.getElementById('newsletter-popup').style.display = 'flex';
+    }, 5000);
+};
+
+// Close the pop-up when the close button is clicked
+function closePopup() {
+    document.getElementById('newsletter-popup').style.display = 'none';
+}
+
+// Handle the form submission
+document.getElementById('newsletter-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    var email = document.getElementById('newsletter-email').value;
+
+    if (email) {
+        alert('Thank you for subscribing!');
+        document.getElementById('newsletter-popup').style.display = 'none';
+        document.getElementById('newsletter-form').reset();
+    } else {
+        alert('Please enter a valid email.');
+    }
+});
+
+
+</script>
+<img style=" display: block; margin: 0 auto; width:100%;max-width:600px;" src="iPhone%2014%20&%2015%20Pro%20Max%20-%204.png" />
+<div class="container">
+  <h1 class="heading" style=" width:100%; margin-top:0px;">Uzma Patel</h1>
+</div>
+<p style="text-align:center;color:rgba(0,0,0,70%);font-size:12px;letter-spacing: 2px">PROPERTY INVESTOR & MENTOR</P>
+<p style="text-align:center;;font-size:12px;font-family: 'Roboto', sans-serif;">Running my Serviced Accommodation business since 2021.</P>
+<div class="social-buttons" style="margin-top:50px;">
+    <a href="youtube://user/UzmaAndLeena" class="button youtube">
+        <img src="youtube-logo-youtube-logo-transparent-youtube-icon-transparent-free-free-png-ezgif.com-webp-to-png-converter%20(1).png" alt="YouTube"> Subscribe
+    </a>
+    <p>Don't Miss Exclusive Content – Join the Journey!</p>
+
+    <a href="https://www.tiktok.com/@propertywithuzma?lang=en" class="button tiktok">
+        <img src="e5a0c188ef5ccc49dbf8adaa8bf3af60-removebg-preview.png" alt="TikTok"> Tiktok
+    </a>
+    <p>Exclusive Property Tours – Follow on TikTok!</p>
+
+    <a href="instagram://user?username=uzmapatel" class="button instagram">
+        <img src="instaicon2.png" alt="Instagram"> Instagram
+    </a>
+    <p>Get Daily Lifestyle Updates – Stay Connected!</p>
+</div>
+
+</body>
+</html>
