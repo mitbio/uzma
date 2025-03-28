@@ -106,11 +106,12 @@
         <span class="close-btn" onclick="closePopup()">&times;</span>
         <h2 style="color:white">Join Our Newsletter!</h2>
         <p style="color:white">Stay updated with the latest tips, tools, and updates from our link-in-bio service.</p>
-        <form id="newsletter-form">
-            <input type="email" id="newsletter-email" placeholder="Enter your email" required>
-            <input type="text" id="newsletter-email" placeholder="Enter your Fullname" required>
+        <form  id="contactForm" class="newsletter-form">
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <input type="text" id="name" placeholder="Enter your Fullname" required>
 			<button type="submit" class="subscribe-btn">Subscribe Now</button>
         </form>
+	  <p id="responseMessage"></p>  
     </div>
 </div>
 
@@ -171,13 +172,13 @@
     margin-bottom: 20px;
 }
 
-#newsletter-form {
+.newsletter-form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#newsletter-form input {
+.newsletter-form input {
     width: 100%;
     padding: 12px;
     border-radius: 5px;
@@ -227,20 +228,56 @@ function closePopup() {
 }
 
 // Handle the form submission
-document.getElementById('newsletter-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    var email = document.getElementById('newsletter-email').value;
+var form = document.querySelector('.newsletter-form');
+if (form) {
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        var email = document.getElementById('newsletter-email').value;
 
-    if (email) {
-        alert('Thank you for subscribing!');
-        document.getElementById('newsletter-popup').style.display = 'none';
-        document.getElementById('newsletter-form').reset();
-    } else {
-        alert('Please enter a valid email.');
-    }
-});
+        if (email) {
+            alert('Thank you for subscribing!');
+            document.getElementById('newsletter-popup').style.display = 'none';
+            this.reset();
+        } else {
+            alert('Please enter a valid email.');
+        }
+    });
+}
+var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+if (!emailPattern.test(email)) {
+    alert('Please enter a valid email address.');
+    return;
+}
 
+  document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent page refresh
 
+    // Get form data
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+
+    // Replace with your Google Apps Script Web App URL
+    let url = "https://script.google.com/macros/s/AKfycbwPDfHH_DI0zdoa1oAHBJ3k9kgkgxHKvwaKdBrUJvawcpRqLwGNlMZ-70fliagygMPIKg/exec";  
+
+    // Prepare data for sending
+    let data = { name: name, email: email};
+
+    // Send data using Fetch API
+    fetch(url, {
+      method: "POST",
+      mode: "no-cors", // Avoid CORS issues
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    })
+    .then(() => {
+      document.getElementById("responseMessage").textContent = "Message sent successfully!";
+      document.getElementById("contactForm").reset();
+    })
+    .catch(error => {
+      document.getElementById("responseMessage").textContent = "Error sending message.";
+      console.error("Error:", error);
+    });
+  });
 </script>
 <img style=" display: block; margin: 0 auto; width:100%;max-width:600px;" src="iPhone%2014%20&%2015%20Pro%20Max%20-%204.png" />
 <div class="container">
