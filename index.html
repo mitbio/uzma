@@ -228,21 +228,7 @@ function closePopup() {
 }
 
 // Handle the form submission
-var form = document.querySelector('.newsletter-form');
-if (form) {
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        var email = document.getElementById('newsletter-email').value;
 
-        if (email) {
-            alert('Thank you for subscribing!');
-            document.getElementById('newsletter-popup').style.display = 'none';
-            this.reset();
-        } else {
-            alert('Please enter a valid email.');
-        }
-    });
-}
 
   document.getElementById("contactForm").addEventListener("submit", function(event) {
     event.preventDefault(); // Prevent page refresh
